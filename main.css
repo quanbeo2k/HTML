@@ -19,13 +19,13 @@ h1{
 
 @media (max-width: 1024px) {
   .container {
-    width: 90%;
+    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    width: 100%;
+    width: 50%;
     font-size: 14px;
     background-color: white;
     color: black;
