@@ -27,5 +27,7 @@ h1{
   .container {
     width: 100%;
     font-size: 14px;
+    background-color: white;
+    color: black;
   }
 }
