@@ -11,3 +11,21 @@ h1{
     text-align: center;
     color: white;
 }
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    font-size: 14px;
+  }
+}
