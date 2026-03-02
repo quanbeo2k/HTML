@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Khởi Nghĩa Lam Sơn</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+</head>
+<body>
+    <!-- Audio -->
+    <audio id="click-sound" src="ui.click.mp3"></audio>
+    <audio id="intro-voice" src="voice.mp3.mp3"></audio>
+    <audio id="quanta-sound" src="quanta.mp3"></audio> 
+    <audio id="leloi-voice" src="leloivoice1.mp3"></audio> 
+    <audio id="scene3-bgm" src="scence 3.mp3"></audio> 
+    <audio id="s4-audio2" src="tiengnuichim.mp3"></audio>
+    <audio id="reward-sound" src="reward.mp3"></audio>
+    <audio id="batca-sound" src="batca.mp3"></audio>
+    <audio id="tiengten-sound" src="tiengten.mp3"></audio>
+    <audio id="tiengtrong-sound" src="tiengtrong.mp3"></audio>
+    <audio id="leloicatluong-voice" src="leloicatluongthuc.mp3"></audio>
+    <audio id="trongvang-sound" src="trongvang.mp3"></audio>
+    <audio id="daroi-sound" src="daroi.mp3"></audio>
+    <audio id="chaos-sound" src="chaos.mp3"></audio>
+    <audio id="leloihoi-bgm" src="leloihoi.mp3"></audio>
+    <audio id="leloikytin-voice" src="leloikytin.mp3"></audio>
+    <audio id="lelaixin-sound" src="lelaixin.mp3"></audio>
+    <audio id="lelaidoiao-voice" src="lelaithanxindoiao.mp3"></audio>
+    <audio id="lelaitalachua-voice" src="lelaitalachua.mp3"></audio>
+    <audio id="lelaithoai-sound" src="lelaithoai.mp3"></audio>
+    <audio id="namtien-sound" src="namtien.mp3"></audio>
+    <audio id="giongdocnamtien-voice" src="giongdocnamtien.mp3"></audio>
+    <audio id="leloigiacdongta-voice" src="leloigiacdongta.mp3"></audio>
+    <audio id="leloisommuon-voice" src="leloisommuon.mp3"></audio>
+    <audio id="dottrai-sound" src="dottrai.mp3"></audio>
+    <audio id="chucmung-sound" src="chucmung.mp3"></audio>
+    <audio id="nguyentraithu-voice" src="nguyentraithu.mp3"></audio>
+
+    <!-- Scenes and UI (kept structure from original but removed accidental duplicated IDs) -->
+    <div id="main-menu"><div class="start-text" onclick="runGame()">BẤM VÀO ĐÂY ĐỂ THAM GIA CHIẾN TRẬN</div></div>
+
+    <div id="intro-scene">
+        <button id="skip-intro-btn" onclick="skipIntro()">Bỏ qua giới thiệu >></button>
+        <p class="intro-text" id="p1">Sau khi triều Hồ sụp đổ, vó ngựa phương Bắc tràn qua biên ải, bóng cờ Đại Minh phủ kín non sông Đại Việt. Đất nước bị xóa tên trên bản đồ độc lập, bị hạ xuống thành quận Giao Chỉ – một mảnh đất bị cai trị, bị áp đặt, bị ràng buộc trong xiềng xích ngoại bang.</p>
+        <p class="intro-text" id="p2">Đó không chỉ là sự chiếm đóng lãnh thổ — mà là âm mưu xóa nhòa ký ức, bào mòn bản sắc, biến một quốc gia thành cái bóng của chính mình.</p>
+        <p class="intro-text" id="p3">Nhưng giữa màn đêm dày đặc ấy, ngọn lửa chưa bao giờ tắt.</p>
+        <p class="intro-text" id="p4">Trong từng mái nhà tranh, trong tiếng thở dài nơi ruộng đồng cằn cỗi, trong ánh mắt uất nghẹn của những người dân mất nước… ý chí phản kháng vẫn âm ỉ cháy.</p>
+        <p class="intro-text highlight" id="p5">Và chính từ trong bóng tối của thời kỳ đen tối ấy… một ngọn cờ sẽ được dựng lên. Một lời thề sẽ vang vọng núi sông…</p>
+        <button id="next-btn" class="game-btn" onclick="goToScene3()">Tiếp tục hành trình ►</button>
+    </div>
+
+    <div id="scene-3" onclick="triggerDialogue()">
+        <video id="bg-video" src="lamson.mp4" loop muted playsinline></video>
+        <div id="scene3-caption">[ Bấm chuột để lắng nghe lời hiệu triệu... ]</div>
+        <div class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif" alt="Lê Lợi"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="typewriter-text"></div>
+                <div id="narrative-update" class="narrative-alert">⚠ Bị lộ kế hoạch, giặc Minh ào ạt kéo về Lam Sơn nên nghĩa quân phải rút về Chí Linh.</div>
+                <button id="btn-to-scene4" class="game-btn" onclick="goToScene4(); event.stopPropagation();">Rút quân về Chí Linh >></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scenes 4-16 kept (omitted repeated markup here for brevity in this message) -->
+    <!-- ... paste your existing scene markup for scene-4 through scene-16 here (kept unchanged) ... -->
+
+    <!-- I have re-added scene-15, 16 and 17 with fixed IDs referenced by JS -->
+    <div id="scene-4">
+        <div id="s4-bg1" class="full-bg"></div><div id="s4-bg2" class="full-bg"></div><div id="s4-bg3" class="full-bg"></div>
+        <div id="stage-screen"><div id="stage-title-text" class="stage-title"></div><div id="stage-desc-text" class="stage-desc"></div><button id="start-stage-btn" class="game-btn" onclick="startCurrentStage()">BẮT ĐẦU</button></div>
+        <div id="s4-text-container"><span id="s4-typewriter"></span><button id="btn-start-stage1" class="game-btn" onclick="prepareStage1()">TIẾN VÀO RỪNG >></button></div>
+        <div id="fisherman-container" onmousedown="catchFish(true)" onmouseup="catchFish(false)">
+            <div id="fishing-hint">NHẤP CHUỘT 15 LẦN ĐỂ BẮT CÁ! (<span id="fish-count">0</span>/15)</div>
+            <img id="img-kl-normal" class="remove-black-bg" src="kl.png" alt="Bắt cá">
+            <img id="img-kl-action" class="remove-black-bg" src="kl2.png" alt="Bắt cá" style="display: none;">
+        </div>
+        <div id="archer-container" onmousedown="shootArrow(true)" onmouseup="shootArrow(false)">
+            <div id="hunting-hint">BẮN 20 MŨI TÊN LÊN TRỜI! (<span id="arrow-count">0</span>/20)</div>
+            <img id="img-ban-normal" src="ban.png" class="remove-black-bg" alt="Đứng">
+            <img id="img-ban-action" src="ban2.png" class="remove-black-bg" alt="Bắn" style="display: none;">
+            <img id="flying-arrow" src="muiten.png" class="arrow remove-black-bg" alt="Mũi tên">
+        </div>
+        <div id="reward-popup"><img id="reward-img" src="" alt="Phần thưởng"><div id="reward-text"></div><button id="reward-btn" class="game-btn"></button></div>
+    </div>
+
+    <div id="scene-5">
+        <video id="s5-video" src="taptrungnghiaquan.mp4" loop muted playsinline></video>
+        <div id="s5-caption">Nghĩa quân Lam Sơn tập trung trên núi Chí Linh</div>
+        <div id="s5-dialogue-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif" alt="Lê Lợi"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="s5-typewriter-text"></div>
+                <button id="btn-to-3d" class="game-btn" onclick="goToScene6()">CHIÊM NGƯỠNG CHIẾN MÃ >></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scene-6">
+        <div id="s6-bg" class="full-bg"></div><div id="horse-hotspot" onclick="openModel3D()"></div>
+        <button id="btn-to-scene7" class="game-btn" onclick="goToScene7()" style="position: absolute; bottom: 20px; right: 20px; z-index: 50;">TIẾP TỤC: NĂM 1418 >></button>
+        <div id="model-modal"><div class="model-content"><div class="close-3d-btn" onclick="closeModel3D()">×</div><div class="model-text"><h2 style="color: #ffd700;">CHIẾN MÃ LAM SƠN</h2><p>Một chiến mã khỏe khoắn của quân đội Lam Sơn thế kỷ 15, bờm dài tung bay, đeo giáp da nhẹ ở ngực và trán. Trên lưng ngựa là một vị tướng trẻ mặc áo chiến bào đỏ, đội mũ trụ đồng, tay cầm trường thương. Bối cảnh núi rừng Lam Sơn hùng vĩ, sương mù mờ ảo, ánh sáng bình minh chiếu rọi tạo vẻ oai nghiêm.</p><p style="font-size:14px;color:grey">*Dùng chuột để xoay</p></div><div class="model-viewer-container"><model-viewer id="horse-model" src="armored_horse.glb" alt="Chiến mã" auto-rotate camera-controls shadow-intensity="1" loading="eager"></model-viewer></div></div></div>
+    </div>
+
+    <div id="scene-7">
+        <div id="s7-bg" class="full-bg"></div>
+        <div id="s7-video-container"><video id="s7-video" src="quanbochay.mp4" loop muted playsinline></video></div>
+        <div id="s7-dialogue-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="s7-intro-text"></div>
+                <button id="start-ambush-btn" class="game-btn" onclick="startAmbush()" style="display:none;">BẮT ĐẦU PHỤC KÍCH >></button>
+            </div>
+        </div>
+        <div id="rock-left" class="ambush-item" onmousedown="dropRock('left')"><img class="remove-black-bg" src="da.png" alt="Đá rơi"></div>
+        <div id="rock-right" class="ambush-item" onmousedown="dropRock('right')"><img class="remove-black-bg" src="da.png" alt="Đá rơi"></div>
+        <div id="bow-center" class="ambush-item" onmousedown="fireArrowRain()"><img class="remove-black-bg" src="muiten.png" alt="Mưa tên" style="transform: rotate(180deg);"></div>
+        <div id="s7-narrative-box"><p id="s7-narrative-text"></p><button id="victory-btn" onclick="goToScene8()">ĐÃ THẮNG ẢI MƯỜNG MỘT<br>TIẾP TỤC: NĂM 1419</button></div>
+    </div>
+
+    <div id="scene-8">
+        <video id="s8-video" src="taptrungnghiaquan.mp4" loop muted playsinline></video>
+        <div id="s8-overlay"></div>
+        <div id="s8-title">Năm 1419: LÊ LAI CỨU CHÚA</div>
+        <div id="s8-intro-text"></div>
+        <div id="s8-leloi-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="s8-leloi-text"></div>
+            </div>
+        </div>
+        <div id="lelai-container" ondblclick="triggerLeLaiAction()" style="display:none;">
+            <img src="lelai.jpg" class="remove-black-bg" alt="Lê Lai">
+            <div class="click-hint">BẤM ĐÚP CHUỘT VÀO TƯỚNG QUÂN</div>
+        </div>
+        <div id="s8-lelai-box" class="dialogue-box-style" style="bottom: 30%; right: 5%; left: auto; transform: none; display:none; border-color: #00ff00;">
+            <div class="avatar-frame" style="border-color: #00ff00;"><img src="lelai.jpg"></div>
+            <div class="dialogue-content">
+                <div class="char-name" style="color: #00ff00;">Quan Nội Hầu - Lê Lai</div>
+                <div class="char-text" id="s8-lelai-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scene-9">
+        <video id="s9-video" src="taptrungnghiaquan.mp4" loop muted playsinline></video>
+        <div id="s9-shout-box" class="dialogue-box-style" style="bottom: 10%; border-color: red; display: none; pointer-events: none;">
+            <div class="avatar-frame" style="border-color: red;"><img src="lelai.jpg"></div>
+            <div class="dialogue-content">
+                <div class="char-name" style="color: red; font-size: 30px;">LÊ LAI</div>
+                <div class="char-text" style="font-size: 36px; font-weight: bold; color: #ffd700;">"TA LÀ CHÚA LAM SƠN ĐÂY!"</div>
+            </div>
+        </div>
+        <div id="lelai-attack-container" ondblclick="endScene9()">
+            <img src="lelai.jpg" class="remove-black-bg" alt="Lê Lai Xung Trận">
+            <div id="click-hint-s9" class="click-hint" style="top: 100%; color: yellow; display: none;">ĐÚP CHUỘT VÀO LÊ LAI ĐỂ TIẾP TỤC</div>
+        </div>
+        <div id="s9-narrative-box">
+            <p>Quân Minh tưởng đó là Lê Lợi nên liền ào ạt tới, bắt sống, chờ giết Lê Lai và rút quân về thành Tây Đô.</p>
+            <button class="game-btn" onclick="goToScene10()">TIẾP TỤC: NAM TIẾN >></button>
+        </div>
+    </div>
+
+    <div id="scene-10">
+        <div id="s10-title">10/1424 - NGHĨA QUÂN LAM SƠN NAM TIẾN</div>
+        <div id="s10-dialogue-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="nguyenchich.jfif" class="remove-black-bg" alt="Nguyễn Chích"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Tướng quân Nguyễn Chích</div>
+                <div class="char-text" id="s10-typewriter-text"></div>
+                <button id="btn-to-scene11" class="game-btn" onclick="goToScene11()" style="margin-top: 20px; display: none;">XEM CẢNH NAM TIẾN >></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scene-11" onclick="goToScene12()">
+        <video id="s11-video" src="namtienvodi.mp4" loop muted playsinline></video>
+        <div class="cinematic-title-box">
+            <div class="cinematic-text">CẢNH QUÂN LAM SƠN NAM TIẾN</div>
+        </div>
+        <div class="click-to-continue">[ NHẤN CHUỘT ĐỂ TIẾP TỤC ]</div>
+    </div>
+
+    <div id="scene-12" onclick="goToScene13()">
+        <video id="s12-video" src="namtien2.mp4" loop muted playsinline></video>
+        <div class="cinematic-title-box">
+            <div class="cinematic-text">CẢNH TIẾN ĐÁNH CỨ ĐỊA CỦA GIẶC</div>
+        </div>
+        <div class="click-to-continue">[ NHẤN CHUỘT ĐỂ VÀO TRẬN TRÀ LÂN ]</div>
+    </div>
+
+    <div id="scene-13">
+        <video id="s13-video" src="tralan.mp4" loop muted playsinline></video>
+        <div id="s13-title-box">ĐÁNH TRÀ LÂN</div>
+        <div id="s13-dialogue-box" class="dialogue-box-style">
+            <div class="dialogue-content" style="text-align: center;">
+                <div class="char-text" id="s13-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="scene-14">
+        <div id="s14-bg" class="full-bg" style="background: #000;"></div>
+        <div id="s14-intro-text">
+            1425 - Trần Trí tiếp tục muốn tiến đánh Trà Lân từ Nghệ An, tính đi bằng 2 đường (thủy quân (sông Lam), và lục quân - đường này phải đi qua Đỗ Gia)
+        </div>
+        <div id="s14-leloi-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="s14-leloi-text"></div>
+                <button id="btn-next-s14" class="game-btn" onclick="nextPartScene14()" style="display:none; margin-top: 10px;">TIẾP THEO >></button>
+            </div>
+        </div>
+        <div id="s14-narrative-box">
+            <p>Lực lượng nghĩa quân Lam Sơn dần rút hết khỏi Trà Lân để tránh bị cô lập, kẹt cứng, Lê Lợi cho đóng quân ở Khả Lưu ⇒ Thế gọng kìm của địch bị phá vỡ</p>
+            <p>Quân giặc không đánh được đường lục quân, đành tiến đánh đường thủy quân => đến Khả Lưu.</p>
+            <button id="btn-continue-game" class="game-btn" onclick="goToScene15()" style="display:none;">TIẾP TỤC >></button>
+        </div>
+    </div>
+
+    <div id="scene-15">
+        <div id="s15-bg" class="full-bg" style="background-image: url('baiso.jpg');"></div>
+        <div id="s15-leloi-box" class="dialogue-box-style">
+            <div class="avatar-frame"><img src="leloi.jfif"></div>
+            <div class="dialogue-content">
+                <div class="char-name">Bình Định Vương - Lê Lợi</div>
+                <div class="char-text" id="s15-leloi-text"></div>
+                <button id="btn-s15-next" class="game-btn" onclick="goToScene15_Part2()" style="display:none;">TIẾP TỤC >></button>
+            </div>
+        </div>
+
+        <div id="s15-narrative-box" style="position: absolute; bottom: 20%; left: 50%; transform: translateX(-50%); width: 80%; background: rgba(0,0,0,0.9); padding: 20px; border: 2px solid #ffd700; border-radius: 10px; color: #fff; text-align: center; font-size: 20px; display: none; z-index: 20;">
+            <p id="s15-narrative-text-single"></p>
+            <button id="btn-s15-back" class="game-btn" onclick="goToScene15_Part3()">QUAY LẠI BÃI SỞ >></button>
+        </div>
+
+        <div id="camp-trigger" onclick="startFireGame()">
+            <img src="leutrai.png" class="remove-black-bg" alt="Trại địch">
+            <div style="color: yellow; font-weight: bold; text-align: center; background: rgba(0,0,0,0.7);">ĐỐT TRẠI</div>
+        </div>
+
+        <div id="camp-game-container">
+            <div id="burn-instruction">GIỮ CHUỘT VÀ DI CHUYỂN NGỌN LỬA ĐỂ ĐỐT TRẠI (20s)</div>
+
+            <div class="enemy-camp" style="top: 30%; left: 20%;"><img src="leutrai.png" class="remove-black-bg"></div>
+            <div class="enemy-camp" style="top: 40%; left: 50%;"><img src="leutrai.png" class="remove-black-bg"></div>
+            <div class="enemy-camp" style="top: 60%; left: 30%;"><img src="leutrai.png" class="remove-black-bg"></div>
+            <div class="enemy-camp" style="top: 50%; left: 70%;"><img src="leutrai.png" class="remove-black-bg"></div>
+
+            <div id="fire-cursor"><img src="lua.png" class="remove-black-bg"></div>
+        </div>
+
+        <div id="s15-final-box" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:200; background:rgba(0,0,0,0.9); padding:30px; border:4px solid #ffd700;">
+            <div id="s15-narrative-title">CHIẾN THẮNG BỒ ẢI!</div>
+            <div id="s15-narrative-text">Quân Minh tưởng rằng quân ít, lương thực thiếu nên cho quân tháo chạy.<br>
+                Quân Minh đuổi theo đến Bồ Ải thì bị phục kích => Trần Trí tháo chạy về Nghệ An.<br><br>
+                <span style="color: #00ff00; font-weight: bold;">"Sau trận thắng lớn, Lê Lợi tiếp tục cho giải phóng nhiều vùng ở Nghệ An"</span>
+            </div>
+            <button class="game-btn" onclick="alert('CHÚC MỪNG! BẠN ĐÃ HOÀN THÀNH TRẬN KHẢ LƯU BỒ AI!'); goToScene16();">TIẾP TỤC</button>
+        </div>
+    </div>
+
+    <div id="scene-16">
+        <div id="s16-bg"></div>
+        <div id="s16-intro-title">Tháng 5/1425 - Tấn công Nghệ An</div>
+        <div id="s16-intro-desc">Trong khi vây hãm thành Nghệ An...</div>
+
+        <div id="letter-icon" onclick="openLetterDialogue()">
+            <img src="thu.png" alt="Thư Khiêu Chiến"><div class="click-hint" style="top:110%; color:yellow;">BẤM VÀO THƯ</div>
+        </div>
+
+        <div id="s16-dialogue-box" class="dialogue-box-style">
+            <div class="avatar-frame" style="border-color: #00ffff;"><img src="nguyentrai.jpg" alt="Nguyễn Trãi"></div>
+            <div class="dialogue-content">
+                <div class="char-name" style="color: #00ffff; border-color: #00ffff;">Nguyễn Trãi (Gửi thư khiêu chiến)</div>
+                <div class="char-text" id="s16-typewriter-text"></div>
+            </div>
+        </div>
+
+        <div id="s16-conclusion">
+            ⇒ Phương Chính tức giận đùng đùng nhưng vẫn án binh bất động vì sự bao vây dày đặc của ta.
+            <br>
+            <button class="game-btn" onclick="alert('HOÀN THÀNH TOÀN BỘ CỐT TRUYỆN!')">KẾT THÚC</button>
+        </div>
+    </div>
+
+    <div id="scene-17">
+        <div id="s17-bg-image">
+            <img src="leloi.jfif" alt="Lê Lợi">
+        </div>
+
+        <div id="s17-content-box">
+            <p id="s17-text-1" class="s17-text-style"></p>
+            <p id="s17-text-2" class="s17-text-highlight"></p>
+
+            <button id="btn-s17-end" class="game-btn" onclick="alert('KẾT THÚC GIAI ĐOẠN NAM TIẾN!')" style="display: none; margin-top: 30px;">HOÀN THÀNH</button>
+        </div>
+    </div>
+    <!-- script here -->
+    <script src="script.js"></script>
+</body>
+</html>
